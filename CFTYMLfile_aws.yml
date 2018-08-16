@@ -1,0 +1,20 @@
+---
+- name: ec2 with stack
+  hosts: localhost
+  gather_facts: false
+
+
+  tasks:
+    - name: Run my CloudFormation VPC  stack
+      cloudformation:
+        stack_name: "MyVPCStack"
+        region: "us-east-1"
+        state: "present"
+        template_url: https://s3.us-east-2.amazonaws.com/venkatsample1/vpc.yml
+
+        tags:
+          stack: ansible-cloudformation
+      register: my_vpc_stack
+
+    - debug: msg="MyVPCStack"
+    - debug: msg=""
