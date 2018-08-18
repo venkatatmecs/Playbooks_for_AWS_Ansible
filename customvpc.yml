@@ -3,19 +3,19 @@
   connection: local
   gather_facts: false
   hosts: localhost
-#  vars:
-#    region: us-east-1
-#    cidr_block: 172.0.0.0/16
-#    subnets: 
-#      - cidr: 172.0.0.0/16
-#        az: us-east-1a
-#        resource_tags: { "Environment":"Dev", "Tier" : "Web" }
-#    route_tables: 
-#      - subnets:
-#          - 172.0.0.0/16
-#        routes:
-#          - dest: 0.0.0.0/0
-#            gw: igw
+  vars:
+    region: us-east-1
+    cidr_block: 172.0.0.0/16
+    subnets: 
+      - cidr: 172.0.0.0/16
+        az: us-east-1a
+        resource_tags: { "Environment":"Dev", "Tier" : "Web" }
+    route_tables: 
+      - subnets:
+          - 172.0.0.0/16
+        routes:
+          - dest: 0.0.0.0/0
+            gw: igw
 
   tasks: 
     - 
