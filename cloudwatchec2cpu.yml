@@ -1,0 +1,23 @@
+---
+- name: Cloudwatch alaram for EC2 cpu utilization
+  hosts: localhost
+  gather_facts: false
+
+
+  tasks:
+    - name: Run my CloudFormation cloudwatch alarm for ec2 instance CPU utilization  stack
+      cloudformation:
+        stack_name: "MyCloudwatchtack"
+        region: "us-east-1"
+        state: "present"
+        template_url: https://s3.us-east-2.amazonaws.com/venkatsample1/CloudwatchEC2CPU.yml
+        template_parameters:
+          KeyName: "Us-east-1-NV"
+          OperatorEmail: "venkatesan.kalyanasundaram@atmecs.com"
+          InstanceType: "t2.micro"
+          SSHLocation: "0.0.0.0/0"
+        tags:
+          stack: ansible-cloudformation
+      register: my_cloudwatch_stack
+
+    - debug: msg="MyCloudwatchStack"
