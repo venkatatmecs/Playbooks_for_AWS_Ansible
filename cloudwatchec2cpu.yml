@@ -1,5 +1,5 @@
 ---
-- name: Cloudwatch alaram for EC2 cpu utilization
+- name: Cloudwatch alrm for EC2 cpu util
   hosts: localhost
   gather_facts: false
 
