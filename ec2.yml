@@ -1,5 +1,5 @@
 ---
-- name: first ec2 instance
+- name: 1st ec2 instance
   hosts: localhost
   gather_facts: False
   vars:
